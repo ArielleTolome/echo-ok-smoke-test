@@ -10,12 +10,11 @@ jobs:
   echo:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo
-        run: |
-          echo OK
-          echo OK > echo-output.txt
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Echo
+        run: |
+          echo OK | tee echo-output.txt
       - name: Record output
         run: |
           git config user.name "github-actions[bot]"
